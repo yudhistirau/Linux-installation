@@ -1,0 +1,14 @@
+#cara instalais maria db database server di ubuntu 22.04
+
+#update dan upgrade system
+sudo apt update
+sudo apt upgrade
+
+#instalasi maria db
+sudo apt install mariadb-server
+
+#setting root password untuk maria db
+sudo mysql_secure_installation
+
+#test login ke maria db
+mysql -u root -p
