@@ -1,0 +1,26 @@
+#Step-step instalasi virtual box 7 di ubuntu 22.04
+#sumber dari : https://gcore.com/learning/how-to-install-virtualbox-on-ubuntu/
+
+#update system
+sudo apt update
+
+#Import VirtualBox package repositories keys. 
+#Download Oracle’s public keys dan masukin ke system trusted key di system
+#Public Keys ini berguna untuk verifikasi saat mau download paket dari repo nya oracle
+curl https://www.virtualbox.org/download/oracle_vbox_2016.asc | gpg --dearmor > oracle_vbox_2016.gpg
+curl https://www.virtualbox.org/download/oracle_vbox.asc | gpg --dearmor > oracle_vbox.gpg
+sudo install -o root -g root -m 644 oracle_vbox_2016.gpg /etc/apt/trusted.gpg.d/
+sudo install -o root -g root -m 644 oracle_vbox.gpg /etc/apt/trusted.gpg.d/
+
+#Add the VirtualBox repository
+echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+
+#Install VirtualBox dan dependencies
+sudo apt update
+sudo apt install -y linux-headers-$(uname -r) dkms
+sudo apt install virtualbox-7.0 -y
+
+#TAMBAHAN
+#(Optional) For enhanced functionality such as USB 2.0 and 3.0 support, PXE boot for Intel network cards, disk encryption, and VirtualBox Remote Desktop Protocol (RDP), consider installing the VirtualBox Extension Pack. 
+wget https://download.virtualbox.org/virtualbox/7.0.0/Oracle_VM_VirtualBox_Extension_Pack-7.0.0.vbox-extpack
+sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-7.0.0.vbox-extpack
