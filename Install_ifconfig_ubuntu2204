@@ -1,0 +1,2 @@
+#cara instalasi ifconfig di ubuntu 22.04
+sudo apt install net-tools
