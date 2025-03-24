@@ -1,0 +1,13 @@
+#berikut ini adalah perintah untuk membuat sertifikat openssl 
+openssl req -newkey rsa:2048 -x509 -sha256 -days 36500 -nodes -out BNA-license1.crt -keyout BNA-license1.key
+
+#dimana
+# -newkey rsa:4096 – Membuat permintaan sertifikat baru dan kunci RSA 4096 bit. Yang standar adalah 2048 bit.
+# -x509 – Membuat Sertifikat X.509.
+# -sha256 – Gunakan 265-bit SHA (Secure Hash Algorithm).
+# -days 3650 – Jumlah hari untuk mensertifikasi sertifikat. 3650 adalah 10 tahun. Anda dapat menggunakan bilangan bulat positif.
+# -nodes – Membuat kunci tanpa frasa sandi.
+# -out example.crt – Menentukan nama file untuk menulis sertifikat yang baru dibuat. Anda dapat menentukan nama file apa pun.
+# -keyout example.key – Menentukan nama file untuk menulis kunci pribadi yang baru dibuat. Anda dapat menentukan nama file apa pun.
+
+#sumber : https://www.linuxid.net/32138/cara-membuat-sertifikat-ssl-self-signed/
